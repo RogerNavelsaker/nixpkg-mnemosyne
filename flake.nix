@@ -18,11 +18,15 @@
       checks.${system}.cli-help = pkgs.runCommand "mnemosyne-cli-help" {
         nativeBuildInputs = [ mnemosyne ];
       } ''
+        export HOME="$TMPDIR/home"
+        export MNEMOSYNE_DATA_DIR="$TMPDIR/mnemosyne/data"
         export HF_HUB_OFFLINE=1
         export TRANSFORMERS_OFFLINE=1
         export MNEMOSYNE_EMBEDDINGS_VIA_API=false
         export MNEMOSYNE_LLM_ENABLED=false
+        mkdir -p "$HOME"
         mnemosyne --help > /dev/null
+        test -d "$MNEMOSYNE_DATA_DIR"
         touch "$out"
       '';
     };
