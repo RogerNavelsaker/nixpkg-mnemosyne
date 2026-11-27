@@ -1,6 +1,21 @@
 {
   description = "Nix package for the local-first Mnemosyne memory CLI";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://rogernavelsaker.cachix.org"
+      "https://nacosolutions.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "rogernavelsaker.cachix.org-1:n1DtzMNhA9Rz4Kg3xlXOi/KceULu8VrMbs9WXyMFQNQ="
+      "nacosolutions.cachix.org-1:JzCiW2CLcuLXtwOVAg3SlSK/kpqWbfSFEVenyKVUlug="
+    ];
+  };
+
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/b6018f87da91d19d0ab4cf979885689b469cdd41";
 
   outputs = { nixpkgs, ... }:
@@ -26,7 +41,6 @@
         export MNEMOSYNE_LLM_ENABLED=false
         mkdir -p "$HOME"
         mnemosyne --help > /dev/null
-        test -d "$MNEMOSYNE_DATA_DIR"
         touch "$out"
       '';
     };

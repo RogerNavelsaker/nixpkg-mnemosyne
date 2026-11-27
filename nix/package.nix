@@ -2,14 +2,14 @@
 
 python313Packages.buildPythonApplication {
   pname = "mnemosyne-memory";
-  version = "3.15.1";
+  version = "4.0.0";
   pyproject = true;
 
   # PyPI's 3.15.1 sdist uses a hash-scoped URL; fetchPypi's legacy URL returns 404.
   src = fetchurl {
-    url = "https://files.pythonhosted.org/packages/42/58/968d0f74505fdb2db9a7508192720c5faa9a351313f04acd0ba09b553a9f/mnemosyne_memory-3.15.1.tar.gz";
-    name = "mnemosyne_memory-3.15.1.tar.gz";
-    hash = "sha256-lspUMxc0pUSkhSUrNdiiO5OJ1NMC/S853EYSanXtXKM=";
+    url = "https://files.pythonhosted.org/packages/85/bd/c63cc3ea358afd5a7b2a24696bbb4b7d3f6172b5f370b916eedd554da3ae/mnemosyne_memory-4.0.0.tar.gz";
+    name = "mnemosyne_memory-4.0.0.tar.gz";
+    hash = "sha256-vuTbo8Lrc/N2TIljAV7vEGnworbx+q3xcC68Rm6PXQ0=";
   };
 
   nativeBuildInputs = with python313Packages; [
