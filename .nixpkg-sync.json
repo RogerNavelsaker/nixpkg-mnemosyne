@@ -1,0 +1,9 @@
+{
+  "kind": "pypi",
+  "upstream": "mnemosyne-memory",
+  "version_file": "nix/package.nix",
+  "version_grep": "^  version = \"[0-9.]+\"",
+  "pinned_paths": [],
+  "pinned_flake_regex": "mnemosyne|hash =",
+  "sync_script": "bash scripts/sync-from-pypi.sh"
+}
